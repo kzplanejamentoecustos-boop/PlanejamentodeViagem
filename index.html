@@ -168,7 +168,7 @@ body { font-family:'DM Sans',sans-serif; background:linear-gradient(160deg,#F0E6
 .table-header span { font-size:10px; font-weight:500; letter-spacing:.8px; text-transform:uppercase; color:var(--text-muted); }
 .item-row { background:var(--white); border:1px solid var(--border); border-radius:10px; margin-bottom:6px; overflow:hidden; transition:box-shadow .2s; }
 .item-row:hover { box-shadow:0 2px 8px rgba(26,75,110,.09); }
-.item-row-main { display:grid; grid-template-columns:132px 1fr 48px 118px 104px 32px 32px 32px 32px; gap:4px; align-items:center; padding:8px; }
+.item-row-main { display:grid; grid-template-columns:132px 1fr 48px 118px 104px 32px 32px 32px 32px 32px; gap:4px; align-items:center; padding:8px; }
 .item-row input, .item-row select { padding:7px 9px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; font-family:'DM Sans',sans-serif; color:var(--text); background:var(--sand); width:100%; outline:none; transition:border-color .2s; }
 .item-row input:focus, .item-row select:focus { border-color:var(--ocean-mid); background:var(--white); }
 .sub-cell { font-size:13px; font-weight:500; color:var(--palm); text-align:right; padding-right:2px; line-height:1.3; }
@@ -505,7 +505,7 @@ body { font-family:'DM Sans',sans-serif; background:linear-gradient(160deg,#F0E6
   .unit-wrap  { flex:1 1 110px; min-width:0; }
   .sub-cell   { flex:0 0 70px; font-size:13px; font-weight:600; text-align:right; }
   /* Row 3: action buttons */
-  .btn-evd, .btn-pay, .btn-lnk, .btn-note, .btn-neve, .btn-exp, .btn-rm {
+  .btn-evd, .btn-pay, .btn-lnk, .btn-note, .btn-neve, .btn-exp, .btn-share, .btn-rm {
     flex:0 0 34px; height:34px; font-size:15px; min-width:34px;
   }
 
@@ -878,7 +878,7 @@ body { padding:0 !important; background:#F3ECDD; }
 #tabContent .item-row { border:1px solid transparent; border-radius:12px; margin-bottom:2px; background:transparent; }
 #tabContent .item-row:hover { background:#FBF7EE; box-shadow:none; border-color:#EFE7D6; }
 #tabContent .item-row:focus-within { background:#fff; border-color:#D4E4EE; box-shadow:0 2px 10px rgba(26,75,110,.08); }
-#tabContent .item-row-main { padding:7px 12px; gap:6px; grid-template-columns:152px 1fr 48px 118px 112px 32px 32px 32px 32px; }
+#tabContent .item-row-main { padding:7px 12px; gap:6px; grid-template-columns:152px 1fr 48px 118px 112px 32px 32px 32px 32px 32px; }
 #tabContent .item-row input, #tabContent .item-row select { background:transparent; border-color:transparent; border-radius:8px; font-size:13.5px; min-height:36px; }
 #tabContent .item-row:hover input, #tabContent .item-row:hover select { border-color:#E5DCC9; background:#fff; }
 #tabContent .item-row input:focus, #tabContent .item-row select:focus { border-color:var(--ocean-mid) !important; background:#fff !important; box-shadow:0 0 0 3px rgba(45,123,174,.12); }
@@ -945,6 +945,45 @@ body { padding:0 !important; background:#F3ECDD; }
 .pv-blocked { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:450; background:rgba(255,253,248,.96); border:1px solid var(--border); border-radius:12px; padding:12px 16px; font:500 13px 'DM Sans',sans-serif; color:#4A4436; text-align:center; max-width:80%; box-shadow:0 4px 16px rgba(0,0,0,.12); }
 .tv-sum { bottom:28px; max-width:calc(100% - 80px); }
 .tv-note { right:64px; }
+
+/* incluir em outros casais */
+.btn-share { width:32px; height:32px; border-radius:8px; border:1.5px solid transparent; background:transparent; color:#7A7362; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+#tabContent .item-row:hover .btn-share { border-color:#E5DCC9; background:#fff; }
+.btn-share:hover { border-color:var(--ocean-mid) !important; background:var(--ocean-light) !important; }
+.share-box { max-height:calc(100vh - 16px); overflow-y:auto; display:none; position:fixed; z-index:20000; background:#fff; border:1px solid var(--border); border-radius:14px; box-shadow:0 12px 32px rgba(0,0,0,.18); padding:14px; font-family:'DM Sans',sans-serif; }
+.sh-h { font-family:'Playfair Display',serif; font-size:16px; color:var(--ocean); font-weight:600; margin-bottom:6px; }
+.sh-item { font-size:13px; color:#4A4436; background:#FBF7EE; border-radius:8px; padding:7px 9px; margin-bottom:8px; }
+.sh-row { display:flex; align-items:center; gap:10px; padding:8px 6px; border-radius:8px; cursor:pointer; min-height:40px; }
+.sh-row:hover { background:var(--ocean-light); }
+.sh-row input { width:18px; height:18px; accent-color:var(--ocean); }
+.sh-row b { font-size:14px; } .sh-row small { display:block; font-size:11.5px; color:#7A7362; }
+.sh-row.off { opacity:.55; cursor:default; }
+.sh-note { font-size:11.5px; color:#7A7362; margin:6px 2px 10px; }
+.sh-act { display:flex; justify-content:flex-end; gap:8px; }
+.sh-act button { min-height:38px; padding:0 16px; border-radius:10px; font:600 13.5px 'DM Sans',sans-serif; cursor:pointer; }
+.sh-cancel { border:1.5px solid var(--border); background:#fff; color:#4A4436; }
+.sh-ok { border:none; background:var(--ocean); color:#fff; }
+
+/* calendário do grupo por período */
+.gc-day { min-height:0 !important; }
+.gc-pers { display:flex; flex-direction:column; gap:3px; }
+.gc-per { border-radius:7px; padding:3px 4px 4px; background:rgba(255,255,255,.7); border:1px solid rgba(0,0,0,.05); }
+.gc-per-m { background:#FFF8E7; border-color:#F5DFA0; }
+.gc-per-t { background:#FFF1DE; border-color:#F5C79A; }
+.gc-per-n { background:#EEF0FF; border-color:#C9CDF0; }
+.gc-per-x { background:#F3F1EC; }
+.gc-per.free { opacity:.75; }
+.gc-per-h { font-size:9.5px; font-weight:700; letter-spacing:.3px; text-transform:uppercase; color:#6B6455; margin-bottom:2px; }
+.gc-free { font-size:10px; color:#8A8270; font-style:italic; padding-left:2px; }
+.gc-per .gc-event-chip { margin-top:2px; }
+.gc-event-chip .chip-txt { font-size:10.5px !important; }
+.gc-event-chip .chip-txt b { font-weight:700; }
+
+.btn-share.linked { border-color:#A8C8DD !important; background:var(--ocean-light) !important; color:var(--ocean); font-size:12px; gap:1px; width:auto !important; min-width:32px; padding:0 4px; }
+.btn-share .lk-n { font-size:10px; font-weight:700; }
+.sh-unlink { margin-right:auto; color:#B94040 !important; border-color:#F0C4B8 !important; }
+.gc-event-chip.cont { opacity:.85; border-left:2px dashed rgba(0,0,0,.15); }
+.gc-cont { font-weight:600; font-size:9.5px; opacity:.85; }
 </style>
 </head>
 <body>
@@ -1075,10 +1114,10 @@ body { padding:0 !important; background:#F3ECDD; }
     <button class="ifbtn" data-cat="alimentacao" onclick="setItemFilter('alimentacao')">🍽️ Alimentação</button>
     <button class="ifbtn" data-cat="outros"      onclick="setItemFilter('outros')">📦 Outros</button>
   </div>
-  <div class="table-header" style="display:grid;grid-template-columns:152px 1fr 48px 118px 112px 32px 32px 32px 32px;gap:6px;padding:0 8px 8px;">
+  <div class="table-header" style="display:grid;grid-template-columns:152px 1fr 48px 118px 112px 32px 32px 32px 32px 32px;gap:6px;padding:0 8px 8px;">
     <span>Categoria</span><span>Descrição</span><span style="text-align:center;">Qtd</span>
     <span style="text-align:right;">Valor unitário</span><span style="text-align:right;">Subtotal</span>
-    <span style="grid-column:span 4;text-align:center;">Detalhes</span>
+    <span style="grid-column:span 5;text-align:center;">Detalhes</span>
   </div>
   <div id="itemsList"></div>
   <button class="btn-add" onclick="addItem()">＋ Adicionar item</button>
@@ -1445,6 +1484,7 @@ function addItem(cat='hospedagem',desc='',qty=1,unit='') {
       <button class="btn-note" id="nbtn-${id}" onclick="togNote(${id})" title="Observações">📝</button>
       <button class="btn-neve" id="nvbtn-${id}" onclick="togNeve(${id})" title="Locação de roupa de neve" style="${cat==='passeio'?'':'visibility:hidden;'}">❄️</button>
       <button class="btn-exp" id="xbtn-${id}" onclick="togExtra(${id})" title="Detalhes extras" style="${isT?'':'visibility:hidden;'}">+</button>
+      <button class="btn-share" id="shbtn-${id}" onclick="shareOpen(${id},event)" title="Incluir em outros casais" aria-label="Incluir em outros casais">👥</button>
       <button class="btn-rm" onclick="rmItem(${id})">×</button>
     </div>
     <div class="evd-panel" id="evan-${id}">
@@ -1462,7 +1502,7 @@ function addItem(cat='hospedagem',desc='',qty=1,unit='') {
           <input type="text" id="loc-${id}" placeholder="Digite e escolha uma opção — ou cole um link do Google Maps" autocomplete="off" oninput="onLocInput(${id})" onkeydown="if(event.key==='Enter'){event.preventDefault();locSearch(${id});}">
           <button class="btn-loc" onclick="locSearch(${id})">🔎 Buscar</button>
         </div>
-        <input type="hidden" id="lat-${id}"><input type="hidden" id="lon-${id}"><input type="hidden" id="ord-${id}">
+        <input type="hidden" id="lat-${id}"><input type="hidden" id="lon-${id}"><input type="hidden" id="ord-${id}"><input type="hidden" id="gid-${id}">
         <div class="loc-res" id="locres-${id}"></div>
       </div>
       <div class="evd-time-row" id="evtrow-${id}" style="${cat==='passeio'?'':'display:none'}">
@@ -2689,6 +2729,7 @@ function gatherState() {
       lat:      document.getElementById('lat-'+id)?.value || '',
       lon:      document.getElementById('lon-'+id)?.value || '',
       ord:      document.getElementById('ord-'+id)?.value || '',
+      gid:      document.getElementById('gid-'+id)?.value || '',
       npanOpen: document.getElementById('npan-'+id)?.classList.contains('open') || false,
     });
   });
@@ -2791,6 +2832,7 @@ function applyState(s) {
     if (item.lpOpen && document.getElementById('lpan-'+id)) togLink(id);
 
     if (item.ord) { const o=document.getElementById('ord-'+id); if(o) o.value=item.ord; }
+    if (item.gid) { const g=document.getElementById('gid-'+id); if(g) g.value=item.gid; }
     // local
     if (item.loc || item.lat) {
       const l=document.getElementById('loc-'+id); if(l) l.value=item.loc||'';
@@ -2848,7 +2890,7 @@ function getAllTabsData() {
     const events = (s.items || [])
       .map((item, origIdx) => ({ ...item, _origIdx: origIdx }))
       .filter(item => item.evdt)
-      .map(item => ({ date: item.evdt, desc: item.desc || CLABELS[item.cat] || 'Evento', cat: item.cat, tabId: t.id, itemOrigIdx: item._origIdx }));
+      .map(item => ({ date: item.evdt, desc: item.desc || CLABELS[item.cat] || 'Evento', cat: item.cat, tabId: t.id, itemOrigIdx: item._origIdx, timeStart: item.timeStart || '', timeEnd: item.timeEnd || '', gid: item.gid || '' }));
     return {
       id:      t.id,
       name:    t.name || `Casal ${idx+1}`,
@@ -2921,7 +2963,7 @@ function renderGroupCalendar() {
         if (!e.date.startsWith(ym)) return;
         const day = parseInt(e.date.split('-')[2]);
         if (!evMap[day]) evMap[day] = [];
-        evMap[day].push({ name: c.coupleName || c.name, desc: e.desc, palette: c.palette, tabId: e.tabId, itemOrigIdx: e.itemOrigIdx });
+        evMap[day].push({ name: c.coupleName || c.name, desc: e.desc, palette: c.palette, tabId: e.tabId, itemOrigIdx: e.itemOrigIdx, time: e.timeStart, timeEnd: e.timeEnd, gid: e.gid });
       });
     });
 
@@ -2962,17 +3004,11 @@ function renderGroupCalendar() {
       else if (tripRanges.length) cls += ' trip-range-bg';
       const badges  = tripBadges.map(b=>`<div class="gc-trip-badge" style="background:${b.palette.dot};">${b.label}</div>`).join('');
       const ds = `${yr}-${String(mo).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-      const chips   = dayEvs.map(ev=>`
-        <div class="gc-event-chip" style="background:${ev.palette.bg};cursor:grab;" draggable="true"
-          data-tab-id="${ev.tabId}" data-item-orig-idx="${ev.itemOrigIdx}"
-          ondragstart="_gcChipDragStart(event,this)" ondragend="_gcChipDragEnd(event,this)">
-          <div class="chip-dot" style="background:${ev.palette.dot};pointer-events:none;"></div>
-          <div class="chip-txt" style="color:${ev.palette.text};pointer-events:none;" title="${ev.name}: ${ev.desc}">${ev.name.split(' ')[0]}: ${ev.desc}</div>
-        </div>`).join('');
+      const chips   = _gcPeriods(dayEvs, tripRanges.length > 0);
       cells += `<div class="${cls}" data-date="${ds}"
         ondragover="_gcDayDragOver(event,this)" ondragleave="_gcDayDragLeave(event,this)" ondrop="_gcDayDrop(event,this)">
         <div class="gc-day-num">${day}</div>
-        ${badges}${chips}
+        ${badges}<div class="gc-pers">${chips}</div>
       </div>`;
     }
     return `<div class="gc-month-block">
@@ -4900,6 +4936,7 @@ function bdSync() {
     b.innerHTML = `${b.dataset.label}<span class="ifc">${n}</span>`;
     b.classList.toggle('empty', !n && b.dataset.cat !== 'all');
   });
+  if (typeof refreshLinkBadges === 'function') refreshLinkBadges();
   const f = document.getElementById('itemsFoot');
   if (f) f.innerHTML = rows.length ? `<span>${rows.length} ite${rows.length > 1 ? 'ns' : 'm'}</span><span>Total <b>${tot}</b></span>` : '<span>Nenhum item ainda — adicione voos, hospedagem e passeios.</span>';
 }
@@ -4916,6 +4953,333 @@ setTimeout(() => {
   const pn = document.getElementById('planName'); if (pn) pn.textContent = '⚠️ Offline';
   showToast('Firebase indisponível neste visualizador — os dados ficam só neste aparelho. Abra no navegador para salvar na nuvem.', true);
 }, 8000);
+
+// ── INCLUIR ITEM EM OUTROS CASAIS ─────────────────────────────────────────────
+const _normTxt = t => (t || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+function _tabLabel(t) { return ((t.state && t.state.nomesCasal) || t.name || 'Guia').trim(); }
+function _rowIndex(id) { return [...document.querySelectorAll('#itemsList .item-row')].findIndex(r => r.id === 'row-' + id); }
+function _sameItem(a, b) { return a.cat === b.cat && _normTxt(a.desc) === _normTxt(b.desc) && (a.evdt || '') === (b.evdt || ''); }
+
+let _shareBox = null, _shareId = null;
+function shareClose() { if (_shareBox) _shareBox.style.display = 'none'; _shareId = null; }
+document.addEventListener('click', e => { if (_shareBox && _shareBox.style.display === 'block' && !_shareBox.contains(e.target) && !(e.target.closest && e.target.closest('.btn-share'))) shareClose(); });
+
+function shareOpen(id, ev) {
+  if (ev) ev.stopPropagation();
+  saveCurrentState();
+  const others = TABS.filter(t => t.id !== ACTIVE_ID);
+  if (!others.length) { showToast('Crie as guias dos outros casais primeiro (+ Nova guia).', true); return; }
+  const cur = TABS.find(t => t.id === ACTIVE_ID);
+  const item = cur && cur.state && cur.state.items[_rowIndex(id)];
+  if (!item) return;
+  if (!item.desc.trim()) { showToast('Preencha a descrição do item antes de incluir nos outros casais.', true); return; }
+  if (!_shareBox) {
+    _shareBox = document.createElement('div');
+    _shareBox.className = 'share-box'; _shareBox.setAttribute('role', 'dialog'); _shareBox.setAttribute('aria-label', 'Incluir em outros casais');
+    document.body.appendChild(_shareBox);
+  }
+  _shareId = id;
+  const rows = others.map(t => {
+    const has = !t.state ? 'sem dados' : (t.state.items || []).some(i => _sameItem(i, item)) ? 'já tem este item' : '';
+    return `<label class="sh-row${has ? ' off' : ''}"><input type="checkbox" value="${t.id}" ${has ? 'disabled' : 'checked'}>
+      <span><b>${_escH(_tabLabel(t))}</b>${has ? `<small>${has}</small>` : ''}</span></label>`;
+  }).join('');
+  _shareBox.innerHTML = `<div class="sh-h">👥 Incluir em outros casais</div>
+    <div class="sh-item">${CAT_EMOJI[item.cat] || '📦'} <b>${_escH(item.desc)}</b>${item.evdt ? ' · ' + _fmtShort(item.evdt) : ''}${item.timeStart ? ' · ' + item.timeStart : ''}</div>
+    ${rows}
+    <div class="sh-note">Copia valor, quantidade, data, horário e local. Depois cada casal pode ajustar o seu.</div>
+    <div class="sh-act"><button class="sh-cancel" onclick="shareClose()">Cancelar</button><button class="sh-ok" onclick="shareApply()">Incluir</button></div>`;
+  _shareBox.style.display = 'block';
+  const btn = document.getElementById('shbtn-' + id);
+  const r = btn ? btn.getBoundingClientRect() : { right: window.innerWidth - 20, bottom: 120 };
+  const w = Math.min(320, window.innerWidth - 16);
+  _shareBox.style.width = w + 'px';
+  _shareBox.style.left = Math.max(8, Math.min(r.right - w, window.innerWidth - w - 8)) + 'px';
+  _shareBox.style.top = (r.bottom + 6) + 'px';
+}
+
+function copyItemToTabs(id, tabIds) {
+  saveCurrentState();
+  const cur = TABS.find(t => t.id === ACTIVE_ID);
+  const src = cur && cur.state && cur.state.items[_rowIndex(id)];
+  if (!src) return [];
+  const done = [];
+  tabIds.forEach(tid => {
+    const t = TABS.find(x => x.id === tid);
+    if (!t || !t.state) return;
+    t.state.items = t.state.items || [];
+    if (t.state.items.some(i => _sameItem(i, src))) return;
+    const c = JSON.parse(JSON.stringify(src));
+    Object.assign(c, { evanOpen: false, ppanOpen: false, teOpen: false, lpOpen: false, npanOpen: false, neveSelected: false, _isNeveItem: false, ord: '' });
+    // valor em moeda estrangeira: se o outro casal usa outra moeda, converte para reais
+    if (c.uMode && c.uMode !== 'BRL' && (t.state.moeda || 'BRL') !== c.uMode) {
+      const r = RATES[c.uMode];
+      if (r > 0 && c.unt !== '') c.unt = String(Math.round((parseFloat(c.unt) / r) * 100) / 100);
+      c.uMode = 'BRL';
+    }
+    t.state.items.push(c);
+    done.push(_tabLabel(t));
+  });
+  if (done.length) scheduleLsSave();
+  return done;
+}
+
+function shareApply() {
+  if (_shareId == null || !_shareBox) return;
+  const ids = [..._shareBox.querySelectorAll('input[type=checkbox]:checked:not(:disabled)')].map(i => +i.value);
+  if (!ids.length) { showToast('Selecione pelo menos um casal.', true); return; }
+  const done = copyItemToTabs(_shareId, ids);
+  shareClose();
+  showToast(done.length ? `Incluído em: ${done.join(', ')}. Lembre de 💾 Salvar.` : 'Nada a incluir — os casais já tinham este item.', !done.length);
+  if (currentView === 'group') renderGroupCalendar();
+}
+
+// ── CALENDÁRIO DO GRUPO: chips por período ─────────────────────────────────────
+function _gcPeriodKey(t) {
+  if (!t) return 'x';
+  const h = parseInt(t.split(':')[0], 10);
+  if (isNaN(h)) return 'x';
+  return h < 12 ? 'm' : h < 18 ? 't' : 'n';
+}
+function _gcChip(ev) {
+  const who = (ev.name || '').split(/\s|&/)[0];
+  const tm = ev.time ? `<b>${ev.time}${ev.timeEnd ? '–' + ev.timeEnd : ''}</b> ` : '';
+  return `<div class="gc-event-chip" style="background:${ev.palette.bg};cursor:grab;" draggable="true"
+      data-tab-id="${ev.tabId}" data-item-orig-idx="${ev.itemOrigIdx}"
+      ondragstart="_gcChipDragStart(event,this)" ondragend="_gcChipDragEnd(event,this)">
+      <div class="chip-dot" style="background:${ev.palette.dot};pointer-events:none;"></div>
+      <div class="chip-txt" style="color:${ev.palette.text};pointer-events:none;" title="${_escH(ev.name)}: ${_escH(ev.desc)}${ev.time ? ' · ' + ev.time : ''}">${tm}${_escH(who)}: ${_escH(ev.desc)}</div>
+    </div>`;
+}
+function _gcPeriods(dayEvs, inTrip) {
+  const per = { m: [], t: [], n: [], x: [] };
+  dayEvs.forEach(ev => per[_gcPeriodKey(ev.time)].push(ev));
+  Object.values(per).forEach(a => a.sort((p, q) => (p.time || '').localeCompare(q.time || '')));
+  if (!inTrip && !dayEvs.length) return '';
+  const rows = [['m', '🌅', 'Manhã'], ['t', '☀️', 'Tarde'], ['n', '🌙', 'Noite']].map(([k, ic, lb]) =>
+    `<div class="gc-per gc-per-${k}${per[k].length ? '' : ' free'}"><div class="gc-per-h">${ic} ${lb}</div>${per[k].map(_gcChip).join('') || '<div class="gc-free">livre</div>'}</div>`).join('');
+  const nt = per.x.length ? `<div class="gc-per gc-per-x"><div class="gc-per-h">🕓 Sem horário</div>${per.x.map(_gcChip).join('')}</div>` : '';
+  return rows + nt;
+}
+
+// ── ITENS VINCULADOS ENTRE CASAIS ─────────────────────────────────────────────
+// Itens com o mesmo "gid" são o mesmo passeio em guias diferentes: data, horário,
+// descrição e local ficam sincronizados. Valor e quantidade continuam de cada casal.
+const LINK_FIELDS = ['cat', 'desc', 'evdt', 'timeStart', 'timeEnd', 'loc', 'lat', 'lon', 'isGroup'];
+function _newGid() { return 'g' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+function _gidOf(id) { return (document.getElementById('gid-' + id)?.value || '').trim(); }
+function _setGid(id, g) { const el = document.getElementById('gid-' + id); if (el) el.value = g || ''; _linkBadge(id); }
+function _linkedTabs(gid, exceptTabId) {
+  if (!gid) return [];
+  return TABS.filter(t => t.id !== exceptTabId && t.state && (t.state.items || []).some(i => i.gid === gid));
+}
+function _linkBadge(id) {
+  const btn = document.getElementById('shbtn-' + id); if (!btn) return;
+  const g = _gidOf(id);
+  const n = g ? _linkedTabs(g, ACTIVE_ID).length : 0;
+  btn.classList.toggle('linked', n > 0);
+  btn.innerHTML = n > 0 ? `🔗<span class="lk-n">${n + 1}</span>` : '👥';
+  btn.title = n > 0 ? `Vinculado com ${n} outro(s) casal(is) — data, horário e local mudam juntos` : 'Incluir / vincular em outros casais';
+}
+function refreshLinkBadges() { document.querySelectorAll('#itemsList .item-row').forEach(r => _linkBadge(+r.id.replace('row-', ''))); }
+
+// copia os campos vinculados de "src" para todos os itens com o mesmo gid nas outras guias
+function linkPropagate(src, fromTabId) {
+  if (!src || !src.gid) return 0;
+  let n = 0;
+  TABS.forEach(t => {
+    if (t.id === fromTabId || !t.state) return;
+    (t.state.items || []).forEach(it => {
+      if (it.gid !== src.gid) return;
+      LINK_FIELDS.forEach(f => { if (it[f] !== src[f]) { it[f] = src[f]; n++; } });
+    });
+  });
+  return n;
+}
+// a guia aberta é a fonte da verdade: ao salvar o estado dela, os vínculos são atualizados
+const _origSaveCurrentState = saveCurrentState;
+saveCurrentState = function() {
+  _origSaveCurrentState();
+  const cur = TABS.find(t => t.id === ACTIVE_ID);
+  if (cur && cur.state) (cur.state.items || []).forEach(it => linkPropagate(it, ACTIVE_ID));
+};
+
+// mudança feita fora da guia aberta (ex.: arrastar no calendário do grupo)
+function linkApplyToActiveDom(src) {
+  if (!src || !src.gid) return;
+  document.querySelectorAll('#itemsList .item-row').forEach(r => {
+    const id = +r.id.replace('row-', '');
+    if (_gidOf(id) !== src.gid) return;
+    const set = (k, v) => { const el = document.getElementById(k + id); if (el && el.value !== (v || '')) el.value = v || ''; };
+    set('dsc-', src.desc); set('evdt-', src.evdt); set('evtm-', src.timeStart); set('evtme-', src.timeEnd);
+    set('loc-', src.loc); set('lat-', src.lat); set('lon-', src.lon);
+    if (src.lat && src.lon) setItemCoords(id, src.lat, src.lon, null);
+    _origOnEvdInput(id); onTimeInput(id);
+  });
+}
+_gcDayDrop = function(evt, day) {
+  evt.preventDefault();
+  day.classList.remove('drop-target');
+  const drag = window._GC_DRAG;
+  window._GC_DRAG = null;
+  const newDate = day.dataset.date;
+  if (!drag || !newDate) return;
+  const tab = TABS.find(t => t.id === drag.tabId);
+  const item = tab && tab.state && tab.state.items && tab.state.items[drag.itemOrigIdx];
+  if (!item || item.evdt === newDate) return;
+  item.evdt = newDate;
+  if (tab.id === ACTIVE_ID) {
+    const rows = document.getElementById('itemsList').querySelectorAll('.item-row');
+    if (drag.itemOrigIdx < rows.length) {
+      const rowId = rows[drag.itemOrigIdx].id.replace('row-', '');
+      const el = document.getElementById('evdt-' + rowId);
+      if (el) { el.value = newDate; _origOnEvdInput(rowId); }
+    }
+  } else if (item.gid) {
+    linkPropagate(item, tab.id);       // atualiza as outras guias
+    linkApplyToActiveDom(item);        // e a guia aberta, para ela não desfazer a mudança
+  }
+  const fmt = new Date(newDate + 'T00:00:00').toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: 'short' });
+  showToast('📅 Reagendado para ' + fmt + (item.gid ? ' (todos os casais vinculados)' : ''));
+  scheduleLsSave();
+  renderGroupCalendar();
+};
+
+// ── janela "incluir / vincular" ──
+function _sameDesc(a, b) { return a.cat === b.cat && _normTxt(a.desc) === _normTxt(b.desc); }
+shareOpen = function(id, ev) {
+  if (ev) ev.stopPropagation();
+  saveCurrentState();
+  const others = TABS.filter(t => t.id !== ACTIVE_ID);
+  if (!others.length) { showToast('Crie as guias dos outros casais primeiro (+ Nova guia).', true); return; }
+  const cur = TABS.find(t => t.id === ACTIVE_ID);
+  const item = cur && cur.state && cur.state.items[_rowIndex(id)];
+  if (!item) return;
+  if (!item.desc.trim()) { showToast('Preencha a descrição do item antes de incluir nos outros casais.', true); return; }
+  if (!_shareBox) {
+    _shareBox = document.createElement('div');
+    _shareBox.className = 'share-box'; _shareBox.setAttribute('role', 'dialog'); _shareBox.setAttribute('aria-label', 'Incluir ou vincular em outros casais');
+    document.body.appendChild(_shareBox);
+  }
+  _shareId = id;
+  const gid = item.gid || '';
+  const rows = others.map(t => {
+    if (!t.state) return `<label class="sh-row off"><input type="checkbox" disabled><span><b>${_escH(_tabLabel(t))}</b><small>sem dados</small></span></label>`;
+    const items = t.state.items || [];
+    if (gid && items.some(i => i.gid === gid))
+      return `<label class="sh-row off"><input type="checkbox" checked disabled><span><b>${_escH(_tabLabel(t))}</b><small>🔗 já vinculado</small></span></label>`;
+    const twin = items.find(i => _sameDesc(i, item) && !i.gid);
+    const what = twin ? `já tem este passeio${twin.evdt ? ' (' + _fmtShort(twin.evdt) + (twin.timeStart ? ' ' + twin.timeStart : '') + ')' : ''} — será vinculado e ajustado` : 'será incluído e vinculado';
+    return `<label class="sh-row"><input type="checkbox" value="${t.id}" checked><span><b>${_escH(_tabLabel(t))}</b><small>${what}</small></span></label>`;
+  }).join('');
+  const linkedN = gid ? _linkedTabs(gid, ACTIVE_ID).length : 0;
+  _shareBox.innerHTML = `<div class="sh-h">${linkedN ? '🔗 Passeio vinculado' : '👥 Incluir em outros casais'}</div>
+    <div class="sh-item">${CAT_EMOJI[item.cat] || '📦'} <b>${_escH(item.desc)}</b>${item.evdt ? ' · ' + _fmtShort(item.evdt) : ''}${item.timeStart ? ' · ' + item.timeStart + (item.timeEnd ? '–' + item.timeEnd : '') : ''}</div>
+    ${rows}
+    <div class="sh-note">Itens vinculados mudam juntos: <b>data, horário, descrição e local</b>. Valor e quantidade continuam de cada casal.</div>
+    <div class="sh-act">${linkedN ? '<button class="sh-cancel sh-unlink" onclick="shareUnlink()">Desvincular este</button>' : ''}<button class="sh-cancel" onclick="shareClose()">Fechar</button>${others.some(t => t.state && !(gid && (t.state.items || []).some(i => i.gid === gid))) ? '<button class="sh-ok" onclick="shareApply()">Incluir e vincular</button>' : ''}</div>`;
+  _shareBox.style.display = 'block';
+  const btn = document.getElementById('shbtn-' + id);
+  const r = btn ? btn.getBoundingClientRect() : { right: window.innerWidth - 20, bottom: 120 };
+  const w = Math.min(330, window.innerWidth - 16);
+  _shareBox.style.width = w + 'px';
+  _shareBox.style.left = Math.max(8, Math.min(r.right - w, window.innerWidth - w - 8)) + 'px';
+  _sharePlace(r);
+};
+function _sharePlace(r) {
+  const vh = window.innerHeight, h = _shareBox.offsetHeight;
+  let top = r.bottom + 6;
+  if (top + h > vh - 8) top = r.top - h - 6;          // sem espaço embaixo: abre para cima
+  top = Math.max(8, Math.min(top, vh - h - 8));
+  _shareBox.style.top = top + 'px';
+}
+
+copyItemToTabs = function(id, tabIds) {
+  let gid = _gidOf(id);
+  if (!gid) { gid = _newGid(); _setGid(id, gid); }
+  saveCurrentState();
+  const cur = TABS.find(t => t.id === ACTIVE_ID);
+  const src = cur && cur.state && cur.state.items[_rowIndex(id)];
+  if (!src) return [];
+  const done = [];
+  tabIds.forEach(tid => {
+    const t = TABS.find(x => x.id === tid);
+    if (!t || !t.state) return;
+    t.state.items = t.state.items || [];
+    if (t.state.items.some(i => i.gid === gid)) return;
+    const twin = t.state.items.find(i => _sameDesc(i, src) && !i.gid);
+    if (twin) {                       // já existia: vincula e alinha data/horário/local
+      twin.gid = gid;
+      LINK_FIELDS.forEach(f => { twin[f] = src[f]; });
+      done.push(_tabLabel(t) + ' (vinculado)');
+      return;
+    }
+    const c = JSON.parse(JSON.stringify(src));
+    Object.assign(c, { evanOpen: false, ppanOpen: false, teOpen: false, lpOpen: false, npanOpen: false, neveSelected: false, _isNeveItem: false, ord: '', gid });
+    if (c.uMode && c.uMode !== 'BRL' && (t.state.moeda || 'BRL') !== c.uMode) {
+      const r = RATES[c.uMode];
+      if (r > 0 && c.unt !== '') c.unt = String(Math.round((parseFloat(c.unt) / r) * 100) / 100);
+      c.uMode = 'BRL';
+    }
+    t.state.items.push(c);
+    done.push(_tabLabel(t));
+  });
+  _linkBadge(id);
+  if (done.length) scheduleLsSave();
+  return done;
+};
+
+function shareUnlink() {
+  if (_shareId == null) return;
+  _setGid(_shareId, '');
+  saveCurrentState();
+  // se sobrou só um item com esse gid nas outras guias, ele também perde o vínculo
+  const all = {};
+  TABS.forEach(t => (t.state && t.state.items || []).forEach(i => { if (i.gid) (all[i.gid] = all[i.gid] || []).push(i); }));
+  Object.values(all).forEach(arr => { if (arr.length === 1) arr[0].gid = ''; });
+  shareClose();
+  refreshLinkBadges();
+  scheduleLsSave();
+  showToast('Item desvinculado — agora muda só neste casal.');
+}
+
+// ── calendário do grupo: passeio aparece em todos os períodos que ocupa ──
+function _gcSpan(start, end) {
+  const order = ['m', 't', 'n'];
+  const k0 = _gcPeriodKey(start);
+  if (k0 === 'x') return ['x'];
+  if (!end) return [k0];
+  const toMin = t => { const [h, m] = t.split(':').map(Number); return h * 60 + (m || 0); };
+  let s = toMin(start), e = toMin(end);
+  let k1;
+  if (e <= s) k1 = 'n';                                   // termina depois da meia-noite
+  else { const last = e - 1; k1 = last < 720 ? 'm' : last < 1080 ? 't' : 'n'; }
+  return order.slice(order.indexOf(k0), order.indexOf(k1) + 1);
+}
+_gcPeriods = function(dayEvs, inTrip) {
+  const per = { m: [], t: [], n: [], x: [] };
+  dayEvs.forEach(ev => {
+    const span = _gcSpan(ev.time, ev.timeEnd);
+    span.forEach((k, i) => per[k].push(i === 0 ? ev : { ...ev, _cont: true }));
+  });
+  Object.values(per).forEach(a => a.sort((p, q) => (p._cont ? '00:00' : p.time || '').localeCompare(q._cont ? '00:00' : q.time || '')));
+  if (!inTrip && !dayEvs.length) return '';
+  const rows = [['m', '🌅', 'Manhã'], ['t', '☀️', 'Tarde'], ['n', '🌙', 'Noite']].map(([k, ic, lb]) =>
+    `<div class="gc-per gc-per-${k}${per[k].length ? '' : ' free'}"><div class="gc-per-h">${ic} ${lb}</div>${per[k].map(_gcChip).join('') || '<div class="gc-free">livre</div>'}</div>`).join('');
+  const nt = per.x.length ? `<div class="gc-per gc-per-x"><div class="gc-per-h">🕓 Sem horário</div>${per.x.map(_gcChip).join('')}</div>` : '';
+  return rows + nt;
+};
+_gcChip = function(ev) {
+  const who = (ev.name || '').split(/\s|&/)[0];
+  const tm = ev._cont ? `<span class="gc-cont">↳ até ${ev.timeEnd}</span> `
+    : ev.time ? `<b>${ev.time}${ev.timeEnd ? '–' + ev.timeEnd : ''}</b> ` : '';
+  return `<div class="gc-event-chip${ev._cont ? ' cont' : ''}" style="background:${ev.palette.bg};cursor:grab;" draggable="true"
+      data-tab-id="${ev.tabId}" data-item-orig-idx="${ev.itemOrigIdx}"
+      ondragstart="_gcChipDragStart(event,this)" ondragend="_gcChipDragEnd(event,this)">
+      <div class="chip-dot" style="background:${ev.palette.dot};pointer-events:none;"></div>
+      <div class="chip-txt" style="color:${ev.palette.text};pointer-events:none;" title="${_escH(ev.name)}: ${_escH(ev.desc)}${ev.time ? ' · ' + ev.time + (ev.timeEnd ? '–' + ev.timeEnd : '') : ''}">${ev.gid ? '🔗 ' : ''}${tm}${_escH(who)}: ${_escH(ev.desc)}</div>
+    </div>`;
+};
 
 // ── LOCAL STORAGE — auto-save / auto-load ─────────────────────────────────────
 const LS_KEY = 'planejadorViagem_v1';
